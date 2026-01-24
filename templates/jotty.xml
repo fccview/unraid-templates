@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>jotty</Name>
-  <TemplateURL>https://github.com/kilrah/unraid-docker-templates/raw/main/templates/jotty.xml</TemplateURL>
+  <TemplateURL>https://github.com/fccview/unraid-templates/raw/main/templates/jotty.xml</TemplateURL>
   <Repository>ghcr.io/fccview/jotty</Repository>
   <Registry>https://ghcr.io/fccview/jotty</Registry>
   <Branch>
