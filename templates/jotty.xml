@@ -14,7 +14,7 @@
     </Branch>
     <Network>bridge</Network>
     <Privileged>false</Privileged>
-    <Support>https://github.com/fccview/jotty/issues</Support>
+    <Support>https://forums.unraid.net/topic/197010-support-jotty</Support>
     <Project>https://github.com/fccview/jotty</Project>
     <Overview>jotty-page is a lightweight alternative for managing your personal checklists and notes. It's extremely easy to deploy, keeps all your data on your own server and allows you to encrypt/decrypt your notes for your personal peace of mind.</Overview>
     <Category>Productivity: Tools: Other:</Category>
