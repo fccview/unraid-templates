@@ -58,5 +58,5 @@
     <Config Name="OIDC Groups Scope" Target="OIDC_GROUPS_SCOPE" Default="groups" Mode="" Description="Scope to request for groups. Defaults to 'groups'. Set to empty string or 'no' to disable for providers like Entra ID that don't support the groups scope." Type="Variable" Display="advanced" Required="false" Mask="false">groups</Config>
     <Config Name="OIDC Logout URL" Target="OIDC_LOGOUT_URL" Default="" Mode="" Description="Optional. Custom logout URL for global logout. Full URL to redirect to when logging out." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
     <Config Name="Internal API URL" Target="INTERNAL_API_URL" Default="" Mode="" Description="Use if getting 403 errors after SSO login: Set to http://localhost:3000" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
-    <Config Name="DEBUGGER" Target="DEBUGGER" Default="false|true" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false">false</Config>
+    <Config Name="DEBUGGER" Target="DEBUGGER" Default="" Mode="" Description="" Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
 </Container>
