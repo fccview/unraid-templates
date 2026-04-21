@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<Container version="2">
+    <Name>degoog</Name>
+    <TemplateURL>https://github.com/fccview/unraid-templates/raw/main/templates/degoog.xml</TemplateURL>
+    <Repository>ghcr.io/fccview/degoog:latest</Repository>
+    <Registry>https://ghcr.io/fccview/degoog</Registry>
+    <Branch>
+        <Tag>latest</Tag>
+        <TagDescription>Latest release</TagDescription>
+    </Branch>
+    <Network>bridge</Network>
+    <Privileged>false</Privileged>
+    <Support>https://github.com/fccview/degoog/issues</Support>
+    <Project>https://github.com/fccview/degoog</Project>
+    <Overview>degoog is a search aggregator that queries multiple engines and shows results in one place. You can add custom search engines, bang-command plugins, slot plugins (query-triggered panels above/below results or in the sidebar), and transports (custom HTTP fetch strategies like curl, FlareSolverr, or your own).</Overview>
+    <Category>Network:Web Productivity:Tools: Other:</Category>
+    <WebUI>http://[IP]:[PORT:4444]</WebUI>
+    <Icon>https://raw.githubusercontent.com/fccview/unraid-templates/refs/heads/main/icons/degoog.png</Icon>
+    <Screenshot>https://raw.githubusercontent.com/fccview/degoog/main/screenshots/home.png</Screenshot>
+    <ExtraParams></ExtraParams>
+    <PostArgs/>
+    <DonateText/>
+    <DonateLink>https://www.buymeacoffee.com/fccview</DonateLink>
+    <Requires>Don't forget to click **Show more settings...** for all **Variables**!</Requires>
+
+    <Config Name="PORT" Target="4444" Default="4444" Mode="tcp" Description="You can change 4444 to any available port on your host system. Must match DEGOOG_PORT." Type="Port" Display="always" Required="true" Mask="false">4444</Config>
+    <Config Name="Appdata: data" Target="/app/data" Default="" Mode="rw" Description="Holds plugins, themes, engines, transports, plugin settings and aliases." Type="Path" Display="always" Required="true" Mask="false">/mnt/user/appdata/degoog/data</Config>
+
+    <Config Name="PUID" Target="PUID" Default="99" Mode="" Description="Process User ID that the container will run as." Type="Variable" Display="advanced" Required="true" Mask="false">99</Config>
+    <Config Name="PGID" Target="PGID" Default="100" Mode="" Description="Process Group ID that the container will run as." Type="Variable" Display="advanced" Required="true" Mask="false">100</Config>
+    <Config Name="Degoog Port" Target="DEGOOG_PORT" Default="4444" Mode="" Description="Port the server listens on inside the container. Must match the host port mapping above." Type="Variable" Display="advanced" Required="true" Mask="false">4444</Config>
+    <Config Name="Log Level" Target="LOG_LEVEL" Default="info|fatal|error|warn|log|debug" Mode="" Description="Controls the verbosity of server-side console output. Supported levels from most to least severe: fatal, error, warn, info, log, debug. Each level includes all levels of higher severity. Set to debug to print all messages, including plugin execution times." Type="Variable" Display="advanced" Required="false" Mask="false">info</Config>
+    <Config Name="Settings Passwords" Target="DEGOOG_SETTINGS_PASSWORDS" Default="" Mode="" Description="Optional. Comma-separated list of passwords for the Settings page. If set, users must enter one of these to access Settings (unless a middleware plugin is used as the settings gate)." Type="Variable" Display="advanced" Required="false" Mask="true"></Config>
+    <Config Name="Public Instance" Target="DEGOOG_PUBLIC_INSTANCE" Default="" Mode="" Description="Optional. When set to a truthy value (e.g. true, 1), the instance runs in read-only mode: settings show only theme and engine toggles, no tabs; all server-side mutation APIs return Unauthorized." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+    <Config Name="Distrust Proxy" Target="DEGOOG_DISTRUST_PROXY" Default="" Mode="" Description="Optional. When set to a truthy value (e.g. true, 1), ignores X-Forwarded-For and X-Real-IP headers for rate limiting. Set this if degoog is exposed directly to the internet without a reverse proxy, to prevent clients from spoofing their IP." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+    <Config Name="Default Search Language" Target="DEGOOG_DEFAULT_SEARCH_LANGUAGE" Default="en-US" Mode="" Description="Default ISO 639-1 language code applied to all searches when no language is selected by the user (e.g. en, de, it)." Type="Variable" Display="advanced" Required="false" Mask="false">en-US</Config>
+    <Config Name="UI Locale (i18n)" Target="DEGOOG_I18N" Default="" Mode="" Description="Optional. Forces the UI locale for all requests, overriding the Accept-Language header (e.g. en-US, fr-FR). Unset or empty: Accept-Language is used." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+    <Config Name="Plugins Dir" Target="DEGOOG_PLUGINS_DIR" Default="data/plugins" Mode="" Description="Optional. Directory to load custom command and slot plugins from." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+    <Config Name="Themes Dir" Target="DEGOOG_THEMES_DIR" Default="data/themes" Mode="" Description="Optional. Directory to load custom themes from." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+    <Config Name="Engines Dir" Target="DEGOOG_ENGINES_DIR" Default="data/engines" Mode="" Description="Optional. Directory to load custom search engine plugins from." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+    <Config Name="Transports Dir" Target="DEGOOG_TRANSPORTS_DIR" Default="data/transports" Mode="" Description="Optional. Directory to load custom transports from." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+    <Config Name="Plugin Settings File" Target="DEGOOG_PLUGIN_SETTINGS_FILE" Default="data/plugin-settings.json" Mode="" Description="Optional. Path to the JSON file storing extension settings (plugins, themes, engines, etc.)." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+    <Config Name="Aliases File" Target="DEGOOG_ALIASES_FILE" Default="data/aliases.json" Mode="" Description="Optional. Path to the JSON file defining custom bang command aliases." Type="Variable" Display="advanced" Required="false" Mask="false"></Config>
+</Container>
